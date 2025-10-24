@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+    --color1: #343434;
+    --color2: #efdad9;
+    --color3: #d895be;
+    --color-black: #000;
+    --color-white: #fff; 
+}
+
+* {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html, body {
+    height: 100%;
+    background-color: var(--color-black);
+}
+
+/* Main */
+main {
+    display: flex;
+}
+
+/* Banner Imagem Principal */
+.banner1 {
+    width: 100%;
+    height: 70vh;
+}
+
+/* Formulário de Cadastro */
+.c-cadastro {
+    width: 50%;
+    height: 70vh;
+    background-color: var(--color2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.c-cadastro h1 {
+    margin-bottom: 2rem;
+    color: var(--color-black);
+}
+
+/* Botão de Cadastro */
+.botao-cadastro button {
+    width: 100%;
+    padding: 0.6rem;
+    background-color: var(--color1);
+    color: var(--color-white);
+    border-radius: 8px;
+    border: none;
+    margin-top: 1rem;
+}
+
+.botao-cadastro button:hover {
+    cursor: pointer;
+    background: var(--color3);
+    font-weight: bold;
+    color: var(--color1);
+}
+
+/* Input de Cadastro */
+.c-input input, .c-input textarea {
+    width: 100%;
+    padding: 0.5rem 3rem;
+    border-radius: 8px;
+    border: 1px solid var(--color2);
+    color: var(--color-black); 
+    outline: none; /*remove a borda */
+}
+
+/* Placeholder */
+input::placeholder, textarea::placeholder {
+    color: var(--color1)
+}
+
+/* Foco - muda a borda ao selecionar */
+input:focus, textarea:focus, select:focus {
+    border-color: var(--color3);
+}
+
+/* Label dentro de .c-input */
+.c-input label {
+    display: block;
+    margin-bottom: 0.6rem;
+}
+
+/* Seção 1, 3 e 5 */
+.c-promo_banner4 img, .c-banner2 img, .c-banner5 img {
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Seção 2 e 4 */
+.c-img1_3, .c-img4_6 {
+    display: flex;
+    gap: 1rem;
+}
+
+.c-promo1_3 img, .c-img4_6 img {
+    width: 100%;
+    height: auto;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    display: flex;
+    padding: 1.5rem;
+    justify-content:space-around;
+    flex-wrap: wrap;    /* permite quebra em telas pequenas */
+    list-style: none;
+}
+
+/* h3 + links do footer */
+.c-footer {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    min-width: 180px;
+}
+
+.c-footer a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.c-footer a:hover {
+    color: var(--color3);
+}
+
+.copy p {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 1rem;
+}
