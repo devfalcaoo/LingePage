@@ -1,1 +1,1 @@
-LingePage
+LingePage - Treinamento Loja Linge
