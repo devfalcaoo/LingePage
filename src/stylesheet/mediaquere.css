@@ -1,0 +1,54 @@
+/* --- Desktop - 1024px --- */
+@media (max-width: 1024px) {
+    .c-cadastro {
+        width: 60%;
+        height: auto;            /* evita cortar o conteúdo */
+        padding: 3rem 2rem;
+    }
+
+    .banner1 { height: auto; }
+
+    /* organiza promoções em duas colunas, quando couber */
+    .c-img1_3, .c-img4_6 {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .c-promo1_3, .c-promo4_6 {
+        flex: 1 1 calc(50% - 1rem);
+        min-width: 220px;
+    }
+}
+
+/* --- Tablet - 768px --- */
+@media (max-width: 768px) {
+    .c-main { flex-direction: column; } /* empilha o banner + formulário */
+    .c-cadastro {
+        width: 100%;
+        padding: 2rem;
+    }
+    .c-banner1 { order: -1; } /* opcional: mostrar banner antes do formulário */
+    .c-promo1_3, .c-promo4_6 { flex: 1 1 100%; }
+
+    /* footer fica mais compacto/ocupa menos espaço */
+    .footer {
+        padding: 1rem;
+        justify-content: center;
+    }
+    .copy { text-align: center; margin-top: 1rem; }
+}
+
+/* --- Mobile - 420px --- */
+@media (max-width: 420px) {
+    .c-cadastro { padding: 1.2rem; }
+    .c-cadastro h1 { font-size: 1.1rem; }
+    .c-input input, .c-input textarea {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.95rem;
+    }
+
+    /* footer: itens empilhados e maiores toques */
+    .c-footer { flex-direction: row; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
+    .c-footer h3 { font-size: 0.95rem; }
+    .c-footer a { font-size: 1rem; padding: 0.35rem; }
+}
