@@ -27,31 +27,23 @@
     </div>
 
     <!-- Formulário de Cadastro -->
+    
+    <?php 
 
-    <div class="c-cadastro">
-        <h1 class="titulo_principal">Cadastre-se e concorra!</h1>
-        
-        <form class="c-cadastro-formulario">
-            <div class="c-input">
-                <label for="username"></label>
-                <input type="text" placeholder="Nome de Usuário" required>
-            </div>
+        include "conexao.php";
 
-            <div class="c-input">
-                <label for="email"></label>
-                <input type="email" placeholder="E-mail" required>
-            </div>
+        $nome = $_POST['nome'];
+        $email = $_POST['email'];
+        $telefone = $_POST['telefone'];
 
-            <div class="c-input">
-                <label for="telefone"></label>
-                <input type="text" placeholder="Telefone" required>
-            </div>
+        $sql = "INSERT INTO cadastro (nome, email, telefone) VALUES ('$nome','$email','$telefone')";
 
-            <div class="botao-cadastro">
-                <button type="submit" value="Cadastrar">Cadastrar</button>
-            </div>
-        </form>
-    </div>
+        if (mysqli_query($conn, $sql)) {
+            echo "$nome cadastrado com sucesso!";
+        }
+        else echo "$nome NÃO foi cadastrado!";
+
+    ?>
 
     </main>
 
