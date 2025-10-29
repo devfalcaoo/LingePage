@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja Linge</title>
+    <title>Loja Linge - Cadastro</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="./src/stylesheet/style.css">
     <link rel="stylesheet" href="./src/stylesheet/mediaquere.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- Favicon -->
     <link rel="icon" href="./assets/img/favicon.ico">
@@ -31,26 +34,27 @@
     <div class="c-cadastro">
         <h1 class="titulo_principal">Cadastre-se e concorra!</h1>
         
-        <form class="c-cadastro-formulario">
+        <form class="c-cadastro-formulario" action="cadastro_script.php" method="post">
             <div class="c-input">
-                <label for="username"></label>
-                <input type="text" placeholder="Nome de Usuário" required>
+                <label for="nome"></label>
+                <input type="text" name="nome" placeholder="Nome de Usuário" required>
             </div>
 
             <div class="c-input">
                 <label for="email"></label>
-                <input type="email" placeholder="E-mail" required>
+                <input type="email" name="email" placeholder="E-mail" required>
             </div>
 
             <div class="c-input">
                 <label for="telefone"></label>
-                <input type="text" placeholder="Telefone" required>
+                <input type="text" name="telefone" placeholder="Telefone" required>
             </div>
 
             <div class="botao-cadastro">
                 <button type="submit" value="Cadastrar">Cadastrar</button>
             </div>
         </form>
+        <a href="index.php" class="btn btn-info">Voltar</a>
     </div>
 
     </main>
@@ -129,5 +133,8 @@
             <p>&copy; 2025 Loja Linge. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <!-- JS Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
