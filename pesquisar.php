@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja Linge - Pesquisar</title>
+    <title>Pesquisar</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="./src/stylesheet/style.css">
@@ -26,67 +26,57 @@
     <!-- Botão de Busca - PHP -->
     <?php
 
-    include "conexao.php";
-
     // Recebe o termo de pesquisa (se existir) e protege contra SQL injection
     $pesquisa = $_POST['busca'] ?? '';
-    $pesquisa_esc = mysqli_real_escape_string($conn, $pesquisa);
 
-    $dados = null;
-    if ($pesquisa_esc !== '') {
-        $sql = "SELECT * FROM cadastro WHERE nome LIKE '%$pesquisa_esc%'";
+    include "conexao.php";
 
-        $dados = mysqli_query($conn, $sql);
-        if ($dados === false) {
-            // Em caso de erro na query, exibe mensagem simples
-            echo "<div class='alert alert-danger' role='alert'>Erro na consulta: " . mysqli_error($conn) . "</div>";
-        }
-    }
+    $sql = "SELECT * FROM cadastro WHERE nome LIKE '%$pesquisa%'";
+
+    $dados = mysqli_query($conn, $sql);
 
     ?>
 
     <!-- Pesquisar Cadastro -->
     <div>
-        <h1>Pesquisar cadastro</h1>
+        <h1>Pesquisar Cadastro</h1>
         <nav class="navbar navbar-light bg-light">
 
             <form class="d-flex" action="pesquisar.php" method="POST">
-                <input class="form-control me-2" type="search" name="busca" value="<?php echo htmlspecialchars($pesquisa); ?>" placeholder="Nome" aria-label="Search">
+                <input class="form-control me-2" type="search" placeholder="Nome" aria-label="Search" name="busca" autofocus>
                 <button class="btn btn-outline-success" type="submit">Pesquisar</button>
             </form>
 
         </nav>
 
         <!-- Tabela de Dados da Pesquisa -->
-        <table class="table table-dark table-hover">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th scope="col">Nome</th>
                     <th scope="col">E-mail</th>
                     <th scope="col">Telefone</th>
-                    <th class="col">Funções</th>
+                    <th scope="col">Funções</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Exibe os resultados da pesquisa - PHP BD -->
-                <?php
-                if ($pesquisa === '') {
-                    echo '<tr><td colspan="3">Digite um nome e clique em Pesquisar.</td></tr>';
-                } else if ($dados && mysqli_num_rows($dados) > 0) {
-                    while ($row = mysqli_fetch_assoc($dados)) {
-                        echo '<tr>';
-                        echo '<th scope="row">' . htmlspecialchars($row['nome']) . '</th>';
-                        echo '<td>' . htmlspecialchars($row['email']) . '</td>';
-                        echo '<td>' . htmlspecialchars($row['telefone']) . '</td>';
-                        echo <td width=150px>
-                        <a href='#' class='btn btn-success'>Editar</a>
-                        <a href='#' class='btn btn-danger'>Excluir</a>
-                        </td>
 
-                        echo '</tr>';
-                    }
-                } else {
-                    echo '<tr><td colspan="3">Nenhum resultado encontrado para "' . htmlspecialchars($pesquisa) . '".</td></tr>';
+                <?php
+                while ($linha = mysqli_fetch_assoc($dados)) {
+                    $id = $linha['id'];
+                    $nome = $linha['nome'];
+                    $email = $linha['email'];
+                    $telefone = $linha['telefone'];
+
+                    echo "<tr>
+                            <th scope='row'>$nome</th>
+                            <td>$email</td>
+                            <td>$telefone</td>
+                            <td>
+                                <a href='cadastro_edit.php?id=$id' class='btn btn-success'>Editar</a>
+                                <a href='#' class='btn btn-danger' data-bs-toggle='modal' data-target='#confirma'>Excluir</a>
+                            </td>
+                        </tr>";
                 }
                 ?>
 
@@ -96,6 +86,26 @@
         <!-- Botão de voltar -->
         <a href="index.php" class="btn btn-info">Voltar</a>
 
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="confirma" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmação de Exclusão</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Deseja realmente excluir seu cadastro?</p>
+                    <p id="nome_pessoa">Nome da pessoa</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                    <button type="button" class="btn btn-danger">Sim</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- JS Bootstrap -->

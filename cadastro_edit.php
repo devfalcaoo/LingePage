@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+    <title>Alteração de Cadastro</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="./src/stylesheet/style.css">
@@ -23,6 +23,25 @@
 
 <body>
 
+    <?php
+    include "conexao.php";
+
+    $id = intval($_GET['id'] ?? '');
+    $sql = "SELECT id, nome, email, telefone FROM cadastro WHERE id = $id";
+
+    $dados = mysqli_query($conn, $sql);
+
+    if (!$dados) {
+        die("Erro na consulta: " . mysqli_error($conn));
+    }
+
+    $linha = mysqli_fetch_assoc($dados);
+
+    if (!$linha) {
+        die("Registro não encontrado!");
+    }
+    ?>
+
     <!-- Imagem principal -->
 
     <main class="c-main">
@@ -36,27 +55,29 @@
         <div class="c-cadastro">
             <h1 class="titulo_principal">Cadastre-se e concorra!</h1>
 
-            <form class="c-cadastro-formulario" action="cadastro_script.php" method="post">
+            <form class="c-cadastro-formulario" action="edit_script.php" method="post">
                 <div class="c-input">
                     <label for="nome"></label>
-                    <input type="text" name="nome" placeholder="Nome de Usuário" required>
+                    <input type="text" name="nome" placeholder="Nome de Usuário" required value="<?php echo htmlspecialchars($linha['nome'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
                 </div>
 
                 <div class="c-input">
                     <label for="email"></label>
-                    <input type="email" name="email" placeholder="E-mail" required>
+                    <input type="email" name="email" placeholder="E-mail" required value="<?php echo htmlspecialchars($linha['email'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
                 </div>
 
                 <div class="c-input">
                     <label for="telefone"></label>
-                    <input type="text" name="telefone" placeholder="Telefone" required>
+                    <input type="text" name="telefone" placeholder="Telefone" required value="<?php echo htmlspecialchars($linha['telefone'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
                 </div>
 
                 <div class="botao-cadastro">
-                    <button type="submit" value="Cadastrar">Cadastrar</button>
+                    <button type="submit" class="btn-cadastro" value="Salvar Alterações">Salvar Alterações</button>
+                    <input type="hidden" name="id" value="<?php echo $linha['id']; ?>">
+                    <a href="index.php" class="btn btn-info">Voltar</a>
                 </div>
             </form>
-            <a href="index.php" class="btn btn-info">Voltar</a>
+
         </div>
 
     </main>
