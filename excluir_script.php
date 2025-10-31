@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja Linge</title>
+    <title>Exclusão de Cadastro</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="./src/stylesheet/style.css">
@@ -23,17 +23,24 @@
 
 <body>
 
-    <!-- Página Inicial de Cadastro -->
-    <div class="col">
-        <div class="jumbotron">
-            <h1 class="display-4">Bem-vinda à Loja Linge</h1>
-            <p class="lead">Sua loja preferida de moda feminina.</p>
-            <hr class="my-4">
-            <p>Oferecemos uma ampla variedade de produtos para atender ao seu estilo.</p>
-            <a class="btn btn-primary btn-lg" role="button" href="cadastro.php">Cadastre-se</a>
-            <a class="btn btn-primary btn-lg" role="button" href="pesquisar.php">Pesquisar</a>
-        </div>
-    </div>
+    <!-- PHP - Cadastro no Banco de Dados / EXCLUSÃO -->
+    <?php
+
+    include 'conexao.php';
+    $id = $_POST['id'];
+    $nome = $_POST['nome'];
+
+    $sql = "DELETE from cadastro WHERE id = $id";
+
+    if (mysqli_query($conn, $sql)) {
+        mensagem("$nome excluído com sucesso!", "success");
+    } else {
+        mensagem("$nome NÃO foi excluído!", "danger");
+    }
+
+    ?>
+
+    <a href="index.php" type="button" class="btn btn-primary">Voltar para a página inicial</a>
 
     <!-- JS Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

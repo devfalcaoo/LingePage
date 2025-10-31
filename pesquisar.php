@@ -73,12 +73,14 @@
                             <td>$email</td>
                             <td>$telefone</td>
                             <td>
-                                <a href='cadastro_edit.php?id=$id' class='btn btn-success'>Editar</a>
-                                <a href='#' class='btn btn-danger' data-bs-toggle='modal' data-target='#confirma'>Excluir</a>
+                                <a href='cadastro_edit.php?id=$id' class='btn btn-success btn-sm'>Editar</a>
+                                <a href='#' class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#confirma' onClick = " . '"' . "pegar_dados($id, '$nome')" . '"' . ">Excluir</a>
                             </td>
                         </tr>";
                 }
                 ?>
+
+                <!-- onClick = "pegar_dados($id, '$nome')" / Para o onClick do botão Excluir funcionar, é necessário concatenar as variáveis PHP dentro da string JavaScript -->
 
             </tbody>
         </table>
@@ -88,7 +90,7 @@
 
     </div>
 
-    <!-- Modal -->
+    <!-- Modal - Aviso de Confirmação de Exclusão -->
     <div class="modal fade" id="confirma" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -97,19 +99,34 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Deseja realmente excluir seu cadastro?</p>
-                    <p id="nome_pessoa">Nome da pessoa</p>
+                    <form action="excluir_script.php" method="POST">
+                        <p>Deseja realmente excluir seu cadastro, <b id="nome_pessoa">Nome da pessoa</b>?</p>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
-                    <button type="button" class="btn btn-danger">Sim</button>
+                    <input type="hidden" name="nome" id="nome_pessoa1" value="">
+                    <input type="hidden" name="id" id="id_pessoa" value="">
+                    <input type="submit" class="btn btn-danger" value="Sim">
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Script para passar os dados para o modal/notificação de exclusão -->
+    <script type="text/javascript">
+        function pegar_dados(id, nome) {
+            document.getElementById('nome_pessoa').innerHTML = nome;
+            document.getElementById('id_pessoa').value = id;
+            document.getElementById('nome_pessoa1').value = nome;
+        }
+    </script>
+
     <!-- JS Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>
 
 </html>

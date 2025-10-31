@@ -23,6 +23,7 @@
 
 <body>
 
+    <!-- PHP - Seleção dos Dados para Edição -->
     <?php
     include "conexao.php";
 

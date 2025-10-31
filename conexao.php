@@ -1,3 +1,4 @@
+<!-- Conexão com o Banco de Dados -->
 <?php
 
 $server = "localhost";
