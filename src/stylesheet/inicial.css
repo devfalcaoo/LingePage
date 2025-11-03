@@ -1,0 +1,88 @@
+/* CSS Inicial - Loja Linge */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+    --color1: #343434;
+    --color2: #efdad9;
+    --color3: #d895be;
+    --color-black: #000;
+    --color-white: #fff; 
+}
+
+* {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.c-container {
+    height: 87vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-black);
+}
+
+/* Botões */
+.button {
+    background-color: var(--color3);
+    color: var(--color-white);
+    padding: 0.8rem 1.5rem;
+    margin: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: var(--color1);
+    color: var(--color-white);
+}
+
+/* Conteúdo Principal */
+.c-content {
+    background-color: var(--color2);
+    padding: 4rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    display: flex;
+    padding: 1.5rem;
+    justify-content:space-around;
+    flex-wrap: wrap;    /* permite quebra em telas pequenas */
+    list-style: none;
+}
+
+/* h3 + links do footer */
+.c-footer {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    min-width: 180px;
+}
+
+.c-footer a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.c-footer a:hover {
+    color: var(--color3);
+}
+
+.copy p {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 1rem;
+}

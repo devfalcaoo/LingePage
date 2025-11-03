@@ -7,7 +7,7 @@
     <title>Cadastro</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./src/stylesheet/style.css">
+    <link rel="stylesheet" href="./src/stylesheet/cadastro.css">
     <link rel="stylesheet" href="./src/stylesheet/mediaquere.css">
 
     <!-- Bootstrap CSS -->
@@ -56,7 +56,7 @@
                     <button type="submit" value="Cadastrar">Cadastrar</button>
                 </div>
             </form>
-            <a href="index.php" class="btn btn-info">Voltar</a>
+            <a href="index.php" class="botao-voltar btn">Voltar</a>
         </div>
 
     </main>

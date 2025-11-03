@@ -66,6 +66,19 @@ main {
     color: var(--color1);
 }
 
+/* Botão de Voltar (aceita variantes de nome) */
+.botao-voltar a {
+    margin-top: 1rem;
+    text-decoration: none;
+    background-color: var(--color1);
+    color: var(--color-white);
+    padding: 0.8rem 2.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    border: none;
+    text-align: center;
+}
+
 /* Input de Cadastro */
 .c-input input, .c-input textarea {
     width: 100%;

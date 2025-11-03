@@ -1,0 +1,192 @@
+/* CSS da aba de Pesquisar */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+    --color1: #343434;
+    --color2: #efdad9;
+    --color3: #d895be;
+    --color-black: #000;
+    --color-white: #fff; 
+    --color-red: #ff3535;
+}
+
+* {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* Container */
+.c-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-black);
+    height: 87vh;
+    flex-direction: column;
+}
+
+/* Tabela */
+.table {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Cabeçalho da tabela */
+.table thead {
+    background-color: var(--color3);
+    color: var(--color-white);
+}
+
+.table th {
+    padding: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+/* Células da tabela */
+.table td {
+    padding: 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--color2);
+    color: var(--color1);
+}
+
+/* Hover nas linhas */
+.table tbody tr:hover {
+    background-color: rgba(216, 149, 190, 0.1); /* var(--color3) com opacidade */
+    transition: background-color 0.2s ease;
+}
+
+/* Última linha sem borda inferior */
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .table {
+        margin: 1rem;
+    }
+
+    .table thead {
+        display: none; /* Oculta cabeçalho em telas pequenas */
+    }
+
+    .table, .table tbody, .table tr, .table td {
+        display: block;
+        width: 100%;
+    }
+
+    .table tr {
+        margin-bottom: 1rem;
+        border: 1px solid var(--color2);
+        border-radius: 8px;
+        background: var(--color-white);
+    }
+
+    .table td {
+        /* Adiciona rótulos para cada coluna em telas pequenas */
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 1rem;
+        width: 45%;
+        text-align: left;
+        font-weight: 600;
+    }
+}
+
+/* Botões de Voltar e Pesquisar */
+.button-voltar, .button-pesquisar {
+    background-color: var(--color3);
+    color: var(--color-white);
+    padding: 0.8rem 2.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    text-decoration: none;
+    border: none;
+}
+
+.button-voltar:hover, .button-pesquisar:hover, .button:hover {
+    background-color: var(--color1);
+    color: var(--color-white);
+}
+
+.button-pesquisar {
+    margin-left: 0.5rem;
+}
+
+/* Botões de Editar e Excluir */
+.button {
+    background-color: var(--color-red);
+    color: var(--color-white);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+/* Form - Input de Pesquisa */
+.form input, .form textarea {
+    width: 100%;
+    padding: 0.5rem 3rem;
+    border-radius: 8px;
+    border: 1px solid var(--color2);
+    color: var(--color-black); 
+    outline: none; /*remove a borda */
+}
+
+form, nav {
+    background-color: var(--color-white);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    display: flex;
+    padding: 1.5rem;
+    justify-content:space-around;
+    flex-wrap: wrap;    /* permite quebra em telas pequenas */
+    list-style: none;
+}
+
+/* h3 + links do footer */
+.c-footer {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    min-width: 180px;
+}
+
+.c-footer a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.c-footer a:hover {
+    color: var(--color3);
+}
+
+.copy p {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 1rem;
+}

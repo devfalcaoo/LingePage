@@ -7,7 +7,7 @@
     <title>Pesquisar</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./src/stylesheet/style.css">
+    <link rel="stylesheet" href="./src/stylesheet/pesquisar.css">
     <link rel="stylesheet" href="./src/stylesheet/mediaquere.css">
 
     <!-- Bootstrap CSS -->
@@ -38,13 +38,13 @@
     ?>
 
     <!-- Pesquisar Cadastro -->
-    <div>
+    <div class="c-container">
         <h1>Pesquisar Cadastro</h1>
         <nav class="navbar navbar-light bg-light">
 
-            <form class="d-flex" action="pesquisar.php" method="POST">
+            <form class="form d-flex" action="pesquisar.php" method="POST">
                 <input class="form-control me-2" type="search" placeholder="Nome" aria-label="Search" name="busca" autofocus>
-                <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+                <button class="button-pesquisar" type="submit">Pesquisar</button>
             </form>
 
         </nav>
@@ -73,8 +73,9 @@
                             <td>$email</td>
                             <td>$telefone</td>
                             <td>
-                                <a href='cadastro_edit.php?id=$id' class='btn btn-success btn-sm'>Editar</a>
-                                <a href='#' class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#confirma' onClick = " . '"' . "pegar_dados($id, '$nome')" . '"' . ">Excluir</a>
+                                <a href='cadastro_edit.php?id=$id' class='button btn-sm'>Editar</a>
+
+                                <a href='#' class='button btn-sm' data-bs-toggle='modal' data-bs-target='#confirma' onClick = " . '"' . "pegar_dados($id, '$nome')" . '"' . ">Excluir</a>
                             </td>
                         </tr>";
                 }
@@ -86,7 +87,7 @@
         </table>
 
         <!-- Botão de voltar -->
-        <a href="index.php" class="btn btn-info">Voltar</a>
+        <a href="index.php" class="button-voltar">Voltar</a>
 
     </div>
 
@@ -113,6 +114,28 @@
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="c-footer">
+            <h3>Siga-nos:</h3>
+            <li><a href="https://www.youtube.com/@lojalingeoficial" target="_blank" rel="noopener noreferrer" alt="Link de acesso ao YouTube da Linge">
+                    <i class="fab fa-youtube"></i>
+                </a></li>
+
+            <li><a href="https://www.instagram.com/lojalinge?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" alt="Link de acesso ao Instagram da Linge">
+                    <i class="fab fa-instagram"></i>
+                </a></li>
+
+            <li><a href="https://www.lojalinge.com.br/?srsltid=AfmBOorKUYf4u_KXHx9wZnvNjnFLFXuNgWOJLKhw5qxoG_-Nmgtu5DLK" target="_blank" rel="noopener noreferrer" alt="Link de acesso ao site oficial da Linge">
+                    <i class="fas fa-globe"></i>
+                </a></li>
+        </div>
+
+        <div class="copy">
+            <p>&copy; 2025 Loja Linge. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
     <!-- Script para passar os dados para o modal/notificação de exclusão -->
     <script type="text/javascript">
