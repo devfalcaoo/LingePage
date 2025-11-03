@@ -6,6 +6,7 @@
     --color3: #d895be;
     --color-black: #000;
     --color-white: #fff; 
+    --color-purple: #800080;
 }
 
 * {
@@ -48,8 +49,8 @@ main {
     color: var(--color-black);
 }
 
-/* Botão de Cadastro */
-.botao-cadastro button {
+/* Botão de Cadastro e Voltar */
+.botao-cadastro button, .c-cadastro a {
     width: 100%;
     padding: 0.6rem;
     background-color: var(--color1);
@@ -59,24 +60,16 @@ main {
     margin-top: 1rem;
 }
 
-.botao-cadastro button:hover {
+.botao-cadastro button:hover, .c-cadastro a:hover {
     cursor: pointer;
     background: var(--color3);
     font-weight: bold;
     color: var(--color1);
 }
 
-/* Botão de Voltar (aceita variantes de nome) */
-.botao-voltar a {
-    margin-top: 1rem;
-    text-decoration: none;
-    background-color: var(--color1);
-    color: var(--color-white);
-    padding: 0.8rem 2.5rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    border: none;
-    text-align: center;
+/* Botão de Voltar */
+.c-cadastro a {
+    background-color: var(--color-purple);
 }
 
 /* Input de Cadastro */

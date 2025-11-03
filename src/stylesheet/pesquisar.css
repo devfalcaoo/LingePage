@@ -140,6 +140,7 @@
     border-radius: 8px;
     font-size: 1rem;
     text-decoration: none;
+    gap: 2rem;
 }
 
 /* Form - Input de Pesquisa */

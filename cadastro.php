@@ -55,8 +55,10 @@
                 <div class="botao-cadastro">
                     <button type="submit" value="Cadastrar">Cadastrar</button>
                 </div>
+
+                <a href="index.php" class="botao-voltar btn">Voltar</a>
             </form>
-            <a href="index.php" class="botao-voltar btn">Voltar</a>
+
         </div>
 
     </main>

@@ -7,8 +7,25 @@
     <title>Alteração de Cadastro</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./src/stylesheet/style.css">
     <link rel="stylesheet" href="./src/stylesheet/mediaquere.css">
+
+    <style>
+        .botao-voltar {
+            width: 100%;
+            padding: 0.6rem;
+            background-color: purple;
+            color: var(--color-white);
+            border-radius: 8px;
+            border: none;
+            margin-top: 1rem;
+
+            &:hover {
+                background: var(--color3);
+                font-weight: bold;
+                color: var(--color1);
+            }
+        }
+    </style>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -43,7 +60,7 @@
 
     ?>
 
-    <a href="index.php" type="button" class="btn btn-primary">Voltar para a página inicial</a>
+    <a href="index.php" type="button" class="botao-voltar btn">Voltar para a página inicial</a>
 
     <!-- JS Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
