@@ -1,3 +1,4 @@
+/* --- MEDIA QUERIE CADASTRO E EDITAR --- */
 /* --- Desktop - 1024px --- */
 @media (max-width: 1024px) {
     .c-cadastro {
@@ -33,7 +34,7 @@
     /* footer fica mais compacto/ocupa menos espaço */
     .footer {
         padding: 1rem;
-        justify-content: center;
+        justify-content: space-around;
     }
     .copy { text-align: center; margin-top: 1rem; }
 }
@@ -52,3 +53,18 @@
     .c-footer h3 { font-size: 0.95rem; }
     .c-footer a { font-size: 1rem; padding: 0.35rem; }
 }
+
+/* --- Mobile - 320px --- */
+@media (max-width: 320px) {
+    .c-cadastro h1 { font-size: 1rem;}
+    .c-input input, .c-input textarea {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
+    }
+
+    .btn-submit {
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+}
+

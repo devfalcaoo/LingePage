@@ -7,7 +7,7 @@
     <title>Alteração de Cadastro</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./src/stylesheet/style.css">
+    <link rel="stylesheet" href="./src/stylesheet/cadastro.css">
     <link rel="stylesheet" href="./src/stylesheet/mediaquere.css">
 
     <!-- Bootstrap CSS -->

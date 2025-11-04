@@ -40,6 +40,12 @@
     overflow: hidden;
 }
 
+/* Wrapper to allow horizontal scroll on very narrow widths */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
 /* Cabeçalho da tabela */
 .table thead {
     background-color: var(--color3);
@@ -60,6 +66,11 @@
     vertical-align: middle;
     border-bottom: 1px solid var(--color2);
     color: var(--color1);
+}
+
+/* Allow long text to wrap inside cells */
+.table td, .table th {
+    word-break: break-word;
 }
 
 /* Hover nas linhas */
@@ -190,4 +201,25 @@ form, nav {
     color: var(--color-white);
     text-decoration: none;
     font-size: 1rem;
+}
+
+/* Medium screens: reduce padding and font size for better fit */
+@media (max-width: 1024px) {
+    .table th, .table td {
+        padding: 0.75rem;
+        font-size: 0.95rem;
+    }
+    .table {
+        max-width: 100%;
+    }
+}
+
+/* Very small screens: make action buttons full width inside card rows */
+@media (max-width: 480px) {
+    .table td[data-label='Ações'] .button {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0.25rem 0;
+    }
 }
